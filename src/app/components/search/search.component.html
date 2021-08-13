@@ -1,1 +1,23 @@
-<p>search works!</p>
+<div class="row">
+    <div class="col">
+        <!-- #termino es para capturar el valor del textbpx -->
+       <input #termino type="text" (keyup)="buscar(termino.value)" class="form-control" placeholder="Buscarartista">
+    </div>
+</div>
+
+
+
+<div class="card-columns m-5">
+    <div *ngFor="let artista of artistas" class="card m-2">
+        <img [src]="artista.images[0].url" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{artista.name}}</h5>
+        <p class="card-text">
+            <span *ngFor="let artista of artistas"  class="badge rounded-pill bg-primary">
+              {{artista.name}}
+            </span>
+          </p>
+
+      </div>
+    </div>
+</div>
