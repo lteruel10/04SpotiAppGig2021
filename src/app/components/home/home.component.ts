@@ -17,11 +17,14 @@ export class HomeComponent implements OnInit {
   //       console.log(respuesta);
   //       this.paises=respuesta;
   //     });
+  nuevasCanciones:any []=[];
    constructor(private spotify:SpotifyService) {//creamos el objeto srvicio
-    this.spotify.getNewReleases();
-  
-
-   }
+    this.spotify.getNewReleases()
+    .subscribe((data:any)=>{
+      console.log(data.albums.items);
+      this.nuevasCanciones=data.albums.items
+    });
+    }
 
   ngOnInit(): void {
   }

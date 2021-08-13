@@ -12,11 +12,12 @@ export class SpotifyService {
 
   getNewReleases(){
     const headers=new HttpHeaders({//esto es para agregar las autorizaciones y token de spotify
-      'Authorization':'Bearer BQAbb_o0TP_hodQdbn0EnBZYaFXitbJm1umUp6J_gRGk9MOotvLEQHSU9drWhhJwElLQzz075NCed3lpFY8'
+      'Authorization':'Bearer BQCuzjVKKapIc7AlEAtesF8IQ38fIqbkKtbBsz5GXPYysIz9K0Nty6Ybj8YS6LYBO5gKGLj3ElrpiOt4024'
     });
-    this.http.get('https://api.spotify.com/v1/browse/new-releases?offset=0&limit=20',{headers})
-    .subscribe(data=>{console.log(data)
-    });
+    // this.http.get('https://api.spotify.com/v1/browse/new-releases?offset=0&limit=20',{headers})
+    // .subscribe(data=>{console.log(data)
+    //hacemos return para que doinde sea que se llame se puede poner el . subscribe por ejemplo en el hommecomontes.ts
+     return this.http.get('https://api.spotify.com/v1/browse/new-releases?offset=0&limit=20',{headers});
      
   }
 }
