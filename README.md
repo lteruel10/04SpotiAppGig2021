@@ -23,3 +23,10 @@ import { HttpClient } from '@angular/common/http';
      {{i+1}}   {{pais.name}} - {{pais.capital}}
     </li>
 </ul>
+
+
+### ya no es necesario importar el servicio en app.module ts siempre yc cuando 
+en el servicio el decorador @Injectable este asi:
+* @Injectable({
+  providedIn: 'root'//importa automaticamente  los serfvicios, ya lo hace angular solito
+})
