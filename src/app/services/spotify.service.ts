@@ -6,6 +6,36 @@ import {map} from 'rxjs/operators'
 @Injectable({
   providedIn: 'root'//importa automaticamente  los serfvicios, ya lo hace angular solito
 })
+///ahora simplificado
+
+export class SpotifyService {
+  constructor(private http:HttpClient) { 
+    console.log('Srvicio spotify listoxxxxxxxx')
+  }
+
+  getQuery(query:string){
+    const url=`https://api.spotify.com/v1/${query}`;
+    const headers=new HttpHeaders({//esto es para agregar las autorizaciones y token de spotify
+      'Authorization':'Bearer BQANJ00QexRifiJIzufDMZsUhTSAi7eJRfnDBs1ID0JZnGBWmT8Bhk9Ovl2nhqn4s9u_Bh1UmcpB5E8sVbE'
+    });
+
+    return this.http.get(url,{ headers });
+  }//getQuery
+
+  getNewReleases(){
+      ///ahora con el metodo map
+     return this.getQuery('browse/new-releases?offset=0&limit=20')
+     .pipe(map((data:any)=>data['albums'].items));
+    }//getnewreleases
+
+  getArtist(termino:string){
+     return  this.getQuery(`search?q=${termino}&type=artist&market=us&limit=20`)
+    .pipe(map((data:any)=>data['artists'].items));
+  }//getArtist
+}//class
+
+/****antes de la SIMPLIFICACION */
+/*
 export class SpotifyService {
 
   constructor(private http:HttpClient) { 
@@ -48,3 +78,4 @@ export class SpotifyService {
 
 
 }//class
+*/
