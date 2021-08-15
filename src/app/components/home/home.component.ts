@@ -17,12 +17,16 @@ export class HomeComponent implements OnInit {
   //       console.log(respuesta);
   //       this.paises=respuesta;
   //     });
+  loading :boolean;
   nuevasCanciones:any []=[];
-   constructor(private spotify:SpotifyService) {//creamos el objeto srvicio
+   
+  constructor(private spotify:SpotifyService) {//creamos el objeto srvicio
+    this.loading=true;
     this.spotify.getNewReleases()
     .subscribe((data:any)=>{
       console.log(data);
-      this.nuevasCanciones=data
+      this.nuevasCanciones=data;
+      this.loading=false;
     });
     }
 

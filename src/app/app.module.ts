@@ -15,6 +15,8 @@ import { ROUTES } from './app.routes';
 
 //pipes
 import { NoimagePipe } from './pipes/noimage.pipe';
+import { TarjetasComponent } from './components/shared/tarjetas/tarjetas.component';
+import { LoadingComponent } from './components/shared/loading/loading.component';
 
 //servicios
 // import { SpotifyService } from './services/spotify.service'; es opcional si esta el  providedIn: 'root'
@@ -26,7 +28,9 @@ import { NoimagePipe } from './pipes/noimage.pipe';
     HomeComponent,
     SearchComponent,
     ArtistaComponent,
-    NoimagePipe
+    NoimagePipe,
+    TarjetasComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

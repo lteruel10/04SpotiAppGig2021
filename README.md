@@ -1,3 +1,5 @@
+
+* * * crear componente ng g c components/shared/tarjetas -is --skipTests   
 # Peticiones HTTP
 * *  permite realizar peticions HTTP
 import{HttpClientModule} from '@angular/common/http'  ///app.module.ts
