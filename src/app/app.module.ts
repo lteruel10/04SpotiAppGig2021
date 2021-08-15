@@ -13,6 +13,9 @@ import { ArtistaComponent } from './components/artista/artista.component';
 import{RouterModule} from '@angular/router'
 import { ROUTES } from './app.routes';
 
+//pipes
+import { NoimagePipe } from './pipes/noimage.pipe';
+
 //servicios
 // import { SpotifyService } from './services/spotify.service'; es opcional si esta el  providedIn: 'root'
  
@@ -22,7 +25,8 @@ import { ROUTES } from './app.routes';
     NavbarComponent,
     HomeComponent,
     SearchComponent,
-    ArtistaComponent
+    ArtistaComponent,
+    NoimagePipe
   ],
   imports: [
     BrowserModule,
