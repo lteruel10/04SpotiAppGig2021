@@ -69,3 +69,30 @@ en el servicio el decorador @Injectable este asi:
   @media (min-width: 1200px) {  
      .card-columns {column-count: 5;} 
   }
+
+
+
+### ////creamos ruta
+   {path:'artist/:id',component:ArtistaComponent},
+
+### //inyectamos la ruta
+* ***** import { Router } from '@angular/router';
+
+constructor(private router:Router) { }
+  verArtista(item:any){
+    let artistaId:any;
+    if(item.type==='artist'){
+      artistaId=item.id;
+    }else{
+      artistaId=item.artists[0].id;
+    }
+    this.router.navigate(['/artist',artistaId])//envia la ruta al navegador
+  }//verArtista   
+
+### ///caputar parametros de la ruta
+* **** import { ActivatedRoute } from '@angular/router';
+
+  constructor(private router:ActivatedRoute) { 
+    this.router.params.subscribe(params=>
+      console.log(params['id']));//capturamos los parametros de la ruta
+  }
