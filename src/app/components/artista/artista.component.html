@@ -27,7 +27,7 @@
                     <th>id</th>
                     <th>Foto</th>
                     <th>Album</th>
-                    <th>Canciónn</th>
+                    <th>Canción</th>
                     <th>Vista Previa</th>
                 </tr>
             </thead>
@@ -40,8 +40,10 @@
                     <td>{{item.album.name}}</td>
                     <td>{{item.name}}</td>
                     <td>
-                        <audio [src]= "item.preview_url" controls></audio>
-                    </td>
+                       <!-- // spotify:track:31wHBHqj66GhV4qXXl1MdI -->
+                        <!-- <audio [src]= "item.preview_url" controls></audio> -->
+                        <!-- <iframe [src]="item.uri | domseguro: 'https://open.spotify.com/embed?uri='" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>                    </td> -->
+                        <iframe [src]="item.uri | domseguro" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>                    </td>
                 </tr>
             </tbody>
 
