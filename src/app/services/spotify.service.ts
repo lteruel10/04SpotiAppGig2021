@@ -10,13 +10,15 @@ import {map} from 'rxjs/operators'
 
 export class SpotifyService {
   constructor(private http:HttpClient) { 
-    console.log('Srvicio spotify listoxxxxxxxx')
+    console.log('eSrvicio spotify listo')
+    console.log('eSrvicio spotify listo')
+
   }
 
   getQuery(query:string){
     const url=`https://api.spotify.com/v1/${query}`;
     const headers=new HttpHeaders({//esto es para agregar las autorizaciones y token de spotify
-      'Authorization':'Bearer BQCvV21mSslkC6GqEFR99LGQ9zmBw7D2vJl0h21LSYJgpJu77HJhOoFyqPIU8mMb0HmwSPYp8KQSWmZXk_Y'
+      'Authorization':'Bearer BQB9F4JG6DBOa1iDXIO4zgjznk7HkfZkjHMVJvr9B0xecK0MASWOKA0bKQceULY5z5QBc6VxAIo74zBR1tM'
     });
 
     return this.http.get(url,{ headers });
@@ -32,6 +34,17 @@ export class SpotifyService {
     //  .pipe(map((data:any)=>data['artists'].items));
     
    }//getArtist
+
+   
+   getTopTracks(id:string){
+ 
+    return  this.getQuery(`artists/${id}/top-tracks?market=US`)
+    .pipe(map((data:any)=>data['tracks']));
+    
+  
+ }//getArtist
+
+
 
   getArtists(termino:string){
      return  this.getQuery(`search?q=${termino}&type=artist&market=us&limit=20`)
