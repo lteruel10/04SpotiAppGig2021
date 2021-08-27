@@ -17,6 +17,7 @@ import { ROUTES } from './app.routes';
 import { NoimagePipe } from './pipes/noimage.pipe';
 import { TarjetasComponent } from './components/shared/tarjetas/tarjetas.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
+import { DomseguroPipe } from './pipes/domseguro.pipe';
 
 //servicios
 // import { SpotifyService } from './services/spotify.service'; es opcional si esta el  providedIn: 'root'
@@ -30,7 +31,8 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     ArtistaComponent,
     NoimagePipe,
     TarjetasComponent,
-    LoadingComponent
+    LoadingComponent,
+    DomseguroPipe
   ],
   imports: [
     BrowserModule,
